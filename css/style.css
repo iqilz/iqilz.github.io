@@ -1,0 +1,102 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.main_video {
+  /* center and scale */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* amount of space left around the video (increase to scale down) */
+  --video-margin: 80px; /* total margin subtracted from both width and height */
+
+  width: calc(100vw - var(--video-margin));
+  height: calc(100vh - var(--video-margin));
+
+  /* border / rounding / overlay variables */
+  --round-size: 18px;
+  --overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.48) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0) 70%);
+  --video-shadow: 0 20px 40px rgba(0,0,0,0.6);
+
+  border-radius: var(--round-size);
+  overflow: hidden;
+  background: transparent;
+  box-shadow: var(--video-shadow);
+  z-index: 0;
+}
+
+/* subtle gradient overlay placed above the video but below the border */
+.main_video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--overlay-gradient);
+  z-index: 1; /* above video */
+}
+
+/* border overlay that follows the same radius */
+.main_video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: var(--video-border-size) solid var(--video-border-color);
+  border-radius: inherit;
+  z-index: 3; /* sits above the overlay */
+}
+
+/* Video itself fills the container and preserves aspect ratio */
+.main_video video {
+  position: relative;
+  z-index: 0; /* below the overlay */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hero text overlay */
+.main_video .main_title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 4; /* above overlays */
+  pointer-events: none; /* allow clicks to pass through */
+}
+
+.main_video .main_title .content {
+  max-width: 90%;
+}
+
+.main_video .main_title h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(28px, 6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-shadow: 0 12px 30px rgba(0,0,0,0.65);
+}
+
+.main_video .main_title p {
+  margin: 0.6rem 0 0;
+  color: rgba(255,255,255,0.9);
+  font-size: clamp(14px, 2.5vw, 20px);
+  text-shadow: 0 8px 18px rgba(0,0,0,0.55);
+}
