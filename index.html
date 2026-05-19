@@ -1,24 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Chan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            height: 100vh !important;
+            overflow: hidden !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 0;
+        }
+
+        #media-track {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-10%, -50%);
+            margin: 0;
+        }
+
+        .cta {
+            position: relative;
+            bottom: 2rem; 
+            z-index: 10;
+        }
+    </style>
+
 </head>
 <body>
-  <div class="main_video">
-    <video preload="none" autoplay muted loop playsinline>
-      <source src="video/Site_Ring_1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
 
-    <div class="main_title">
-      <div class="content">
-        <h1>Daniel Chan</h1>
-        <p>Portfolio Underdevelopment</p>
-      </div>
+    <nav class="nav-menu">
+        <a href="index.html" class="nav-link active">work</a>
+        <a href="about.html" class="nav-link">about</a>
+    </nav>
+
+    <div id="media-track" class="fade-in">
+        <a href="pages/project-tv.html">
+            <video class="image" src="videos/SC-TV/web_tv.mp4" poster = "images/web_tv_thbn.jpg" autoplay muted loop playsinline></video>
+        </a>
+        <a href="pages/project-n4t.html">
+            <video class="image" src="videos/SC-N4T/web_n4t.mp4" poster = "images/web_n4t_thbn.jpg" autoplay muted loop playsinline></video>
+        </a>
+        <a href="pages/project-ring.html">
+            <video class="image" src="videos/SC-Ring/web_ring.mp4" poster ="images/web_ring_thbn.jpg" autoplay muted loop playsinline></video>
+        </a>
+        <a href="pages/project-incident-report.html">
+            <video class="image" src="videos/Incident Report/Incident Report.mp4" poster ="images/Headshot.png" autoplay muted loop playsinline></video>
+        </a>
+        <a href="pages/project-sysiphus.html">
+            <video class="image" src="videos/Sisyphus/Sisyphus.mp4" poster ="images/Sisyphus_thbn.jpg" autoplay muted loop playsinline></video>
+        </a>
     </div>
-  </div>
-</body>
+    <div class="cta fade-in-delayed">
+      <p>
+        contact me <a href="contact.html"><strong>here</strong></a>.
+      </p>
+    </div>
+
+    <script src="js/script.js"></script>
+    </body>
 </html>
