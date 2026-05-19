@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Chan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav-menu">
+        <a href="index.html" class="nav-link">work</a>
+        <a href="about.html" class="nav-link">about</a>
+    </nav>
+  <main class="page-content">
+        <form id="my-form" action="https://formspree.io/f/xgvkvyqb" method="POST">
+            <input type="text" name="name" placeholder="your name" required>
+            <input type="email" name="email" placeholder="your email" required>
+            <textarea name="message" rows="5" placeholder="your message..." required></textarea>
+            <button type="submit" id="my-form-button">send message</button>
+            <p id="my-form-status"></p> 
+        </form>
+    </main>
+
+    <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+            status.innerHTML = "thanks! i'll get back to you soon";
+            form.reset();
+            document.getElementById("my-form-button").style.display = "none";
+            } else {
+            response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                status.innerHTML = "oops! there was a problem.";
+                }
+            })
+            }
+        }).catch(error => {
+            status.innerHTML = "oops! there was a problem.";
+        });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+
+</body>
+</html>
