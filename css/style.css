@@ -452,12 +452,38 @@ button:hover {
     }
 }
 
-/* MOBILE SUPPORT */
+/* FOR MOBILE */
 @media (max-width: 768px) {
     html, body {
-        height: auto !important;
-        min-height: 100vh;
-        overflow-y: auto !important;
+        height: 100vh !important;
+        width: 100vw !important;
+        overflow: hidden !important;
+        position: fixed;
+    }
+
+    #media-track {
+        position: absolute;
+        display: flex;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
         -webkit-overflow-scrolling: touch;
+        width: 100vw;
+        height: 60vmin;
+        left: 0 !important;
+        top: 50%;
+        transform: translateY(-50%) !important;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+    
+    @keyframes fadeInTrack {
+        from {
+            opacity: 0;
+            transform: translateY(-48%);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(-50%);
+        }
     }
 }
