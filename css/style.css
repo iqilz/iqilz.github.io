@@ -449,35 +449,5 @@ button:hover {
         grid-template-columns: 1fr;
         gap: 2.5rem;
         padding-left: 10%;
-
-@media (max-width: 767px) {
-    #media-track {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4vh;
-        position: relative;
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
-        width: 100%;
-    }
-
-    #media-track .image {
-        width: 85vw;
-        height: 45vh;
-        object-position: center center !important;
-    }
-    
-    .nav-menu {
-        top: 1rem;
-        padding-bottom: 1rem;
-        gap: 1.5rem;
-    }
-    
-    .cta {
-        margin-top: 2rem;
-    }
-}
     }
 }
