@@ -11,26 +11,44 @@
 
     <style>
         body {
-            height: 100vh !important;
-            overflow: hidden !important;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
-
+    
         #media-track {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-10%, -50%);
-            margin: 0;
+            position: relative;
+            margin: 6rem auto;
         }
-
+    
         .cta {
             position: relative;
-            bottom: 2rem; 
+            padding-bottom: 2rem; 
             z-index: 10;
+        }
+    
+        @media (min-width: 768px) {
+            body {
+                height: 100vh !important;
+                overflow: hidden !important;
+            }
+    
+            #media-track {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-10%, -50%);
+                margin: 0;
+            }
+    
+            .cta {
+                position: relative;
+                bottom: 2rem; 
+            }
         }
     </style>
 
