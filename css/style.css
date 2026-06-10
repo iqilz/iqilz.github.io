@@ -454,7 +454,7 @@ button:hover {
 
 /* FOR MOBILE */
 @media (max-width: 768px) {
-    html, body {
+    html:has(#home-page), #home-page {
         height: 100vh !important;
         width: 100vw !important;
         overflow: hidden !important;
